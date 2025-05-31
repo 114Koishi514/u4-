@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title></title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body, html {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      overflow: hidden;
+    }
+    .animation {
+      display: none;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    .active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <img src="IMG_8166.GIF" class="animation active" />
+  <img src="IMG_8167.GIF" class="animation" />
+  <img src="IMG_8168.GIF" class="animation" />
+  <img src="IMG_8169.GIF" class="animation" />
+  <img src="IMG_8170.GIF" class="animation" />
+
+  <script>
+    const animations = document.querySelectorAll('.animation');
+    let index = 0;
+    const duration = 5000; // 每个动画播放时间（单位：毫秒）
+
+    setInterval(() => {
+      animations[index].classList.remove('active');
+      index = (index + 1) % animations.length;
+      animations[index].classList.add('active');
+    }, duration);
+  </script>
+</body>
+</html>
